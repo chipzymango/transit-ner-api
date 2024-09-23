@@ -39,19 +39,13 @@ The API will be available at: http://localhost:8000.
 The following endpoints are available:
 
     POST /recognize?text=<text>
-
         Parameters:
             text: The input text to be processed by the NER model.
-            group_entities: Optional boolean to group entities together (default: false).
-            wait: Optional boolean to wait for the full result before returning (default: true).
 
 Example Request:
 
 ```bash
-curl -X POST "http://localhost:8000/recognize?text=Når ankommer 31 Grorud på Jernbanetorget?" \
--H "accept: application/json" \
--H "Content-Type: application/json" \
--d '{"text": "Når ankommer 31 Grorud på Jernbanetorget?"}'
+curl -X POST "http://localhost:8000/recognize?text=Når ankommer 31 Grorud på Jernbanetorget?"
 ```
 
 Response:
@@ -60,15 +54,16 @@ JSON containing the recognized entities and their labels.
 
 Example Response:
 
-```json
-  {
-    "entities": [
-      {"word": "31", "entity_group": "B-ROUTENUMBER", "confidence": 0.98},
-      {"word": "Grorud", "entity_group": "B-ROUTENAME", "confidence": 0.95},
-      {"word": "Jernbanetorget", "entity_group": "B-STOPPLACE", "confidence": 0.96}
-    ]
-  }
+```python
+{'data': 
+    {
+    'route_number': 31,
+    'route_name': "grorud",
+    'stop_place': "jernbanetorget"
+    }
+}
 ```
+
 # 4. Stopping and Removing Containers
 
 To stop the running container:
