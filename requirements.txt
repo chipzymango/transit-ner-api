@@ -1,0 +1,7 @@
+fastapi
+transformers
+torch
+safetensors
+tokenizers
+uvicorn
+numpy
