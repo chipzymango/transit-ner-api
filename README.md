@@ -1,4 +1,4 @@
-# NER Model API
+# Public Transport NER Model API
 
 This repository contains the code and Docker configuration to deploy the Public Transport NER Model API. The model has been fine-tuned for entity-extraction related to route numbers, route names and stop places in Oslo and Akershus.
 
